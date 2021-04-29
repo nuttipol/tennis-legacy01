@@ -45,15 +45,15 @@ public class Tennis {
 	
 	public String caculateScore() {
 		if (player1Point == player2Point) {
-			return deuce(player1Point, player2Point);
+			return deuce();
 		}else if (player1Point > 3 || player2Point > 3) {
-			return winOrAdvantage(player1Point, player2Point);
+			return winOrAdvantage();
 		}else {
-			return ongoing(player1Point, player2Point);
+			return ongoing();
 		}
 	}
 
-	private String deuce(int player1Point,int player2Point) {
+	private String deuce() {
 		if (player1Point < 3) {
 			return player1+ " "+ scoreName[player1Point] + " : " + player2 + " "+ scoreName[player2Point]; 
 		}else {
@@ -61,15 +61,15 @@ public class Tennis {
 		}
 	}
 
-	private String winOrAdvantage(int player1Point, int player2Point) {
+	private String winOrAdvantage() {
 		if (player1Point - player2Point >= 2) {
-			return win(player1Point, player2Point);
+			return win();
 		}else{
-			return advantage(player1Point, player2Point);
+			return advantage();
 		}
 	}
 
-	private String win(int player1Point, int player2Point) {
+	private String win() {
 		if (player1Point > player2Point) {
 			return "!!! "+ player1+" win game !!!" ;
 		}else {
@@ -77,7 +77,7 @@ public class Tennis {
 		}
 	}
 
-	private String advantage(int player1Point, int player2Point) {
+	private String advantage() {
 		if (player1Point > player2Point) {
 			return "player1 advantage";
 		}else {
@@ -85,7 +85,7 @@ public class Tennis {
 		}
 	}
 
-	private String ongoing(int player1Point, int player2Point) {
+	private String ongoing() {
 		return player1+ " "+ scoreName[player1Point] + " : " + player2 + " "+ scoreName[player2Point];
 	}
 	
